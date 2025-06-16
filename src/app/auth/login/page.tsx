@@ -4,18 +4,23 @@ import { useState } from "react";
 import { AuthService } from "@/app/services/AuthService";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/AuthContext";
+import paths from "../../paths";
 // import { UserModel } from "@/app/models/User-model";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-//   const [user, setUser] = useState<UserModel | null>(null);
+  //   const [user, setUser] = useState<UserModel | null>(null);
   const router = useRouter();
   const { login } = useAuth();
 
   const handleRedirectToAdminPage = () => {
-    router.push("/pages/admin");
+    router.push(paths.admin);
+  };
+
+  const handleRedirectToHomePage = () => {
+    router.push(paths.home);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,9 +35,15 @@ export default function LoginPage() {
     login(userData);
     if (userData.role === "ADMIN") {
       handleRedirectToAdminPage();
+    } else if (userData.role === "USER") {
+      handleRedirectToHomePage();
     }
 
     // setUser(userData);
+  };
+
+  const handleRedirectVerifyEmailPage = () => {
+    router.push("/auth/forgotPassword/verifyEmail");
   };
 
   return (
@@ -79,10 +90,13 @@ export default function LoginPage() {
         >
           Log In
         </button>
-        <p className="flex justify-center mt-6 text-sm cursor-pointer hover:underline">Forgot password</p>  
+        <p
+          onClick={handleRedirectVerifyEmailPage}
+          className="flex justify-center mt-6 text-sm cursor-pointer hover:underline"
+        >
+          Forgot password
+        </p>
       </form>
-
-      
     </div>
   );
 }

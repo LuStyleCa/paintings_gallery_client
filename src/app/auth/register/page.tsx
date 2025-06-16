@@ -2,6 +2,7 @@
 
 import { AuthService } from "@/app/services/AuthService";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +21,13 @@ export default function RegisterPage() {
     }
 
     setErrorMessage("");
-    AuthService.register(email, password, username);
+    const registerUser = async () => {
+      const response = await AuthService.register(email, password, username);
+      if(response) {
+        router.push('/auth/login')
+      }
+    }
+    registerUser();
   };
 
   return (

@@ -54,7 +54,7 @@ const Gallery = ({
 
   return (
     <>
-      <div className="bg-zinc-700 h-100">
+      <div className="bg-zinc-700 h-100 text-white">
         <div className="flex justify-between items-center p-4">
           <div className="flex">
             {isAdmin || showTitle ? (
@@ -72,8 +72,8 @@ const Gallery = ({
             <button onClick={handleDeleteGallery}>Delete Gallery</button>
           )}
         </div>
-        <div className="flex p-4 items-center justify-center">
-          <div className="grid grid-cols-4 gap-8">
+        <div className="flex px-8 py-4 items-center justify-center">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {paintings?.map((painting, index) => (
               <Painting
                 key={painting.id ?? index}

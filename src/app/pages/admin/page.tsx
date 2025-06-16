@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import AdminContent from "./AdminContent";
+import AdminContent from "./adminContent";
 
 export default function AdminPage() {
   return (

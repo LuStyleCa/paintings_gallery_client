@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ImageSelector from "./ImageSelector";
-import { aboutPageService } from "../services/AboutPageService";
+import ImageSelector from "./../ImageSelector";
+import { aboutPageService } from "../../services/AboutPageService";
 import toast from "react-hot-toast";
-import { ContentManagementModel } from "../models/ContentManagement-model";
+import { ContentManagementModel } from "../../models/ContentManagement-model";
 
 interface AboutSettingsViewProps {
   contentManagement: ContentManagementModel | null;
@@ -37,7 +37,7 @@ export default function AboutSettingsView({
 
   return (
     <div>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <ImageSelector title="Select a photo" setFile={handleSetImageFile} fileUrl={fileUrl} />
         <textarea
           className="w-full p-4 border rounded-lg resize-none"

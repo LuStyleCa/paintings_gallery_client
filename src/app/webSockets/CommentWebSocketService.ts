@@ -31,7 +31,7 @@ export function sendComment(stompClient: Client, message: string, user: UserMode
     message: message,
     paintingId: paintingId,
     userId: user.id,
-    sender: user.name
+    sender: user.username
   };
 
   stompClient.publish({

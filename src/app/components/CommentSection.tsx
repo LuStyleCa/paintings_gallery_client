@@ -2,7 +2,7 @@
 
 import { PaintingModel } from "../models/Painting-model";
 import Comment from "./Comment";
-import { useState } from "react";
+// import { useState } from "react";
 import { useAuth } from "../AuthContext";
 import { useRouter } from "next/navigation";
 import paths from "../paths";
@@ -14,18 +14,18 @@ interface CommentSectionProps {
 
 export default function CommentSection({
   painting,
-  sentMessage,
+  // sentMessage,
 }: CommentSectionProps) {
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
   const { user } = useAuth();
   const router = useRouter();
 
-  const handleSend = () => {
-    if (message.trim()) {
-      sentMessage(message);
-      setMessage("");
-    }
-  };
+  // const handleSend = () => {
+  //   if (message.trim()) {
+  //     sentMessage(message);
+  //     setMessage("");
+  //   }
+  // };
 
   const handleNavigateRegisterPage = () => {
     router.push(paths.register);
@@ -67,7 +67,7 @@ export default function CommentSection({
         </div>
       ) : (
         <div className="flex-col items-center">
-          <input
+          {/* <input
             type="text"
             placeholder="Type your message..."
             value={message}
@@ -79,7 +79,7 @@ export default function CommentSection({
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md"
           >
             Send
-          </button>
+          </button> */}
         </div>
       )}
     </div>

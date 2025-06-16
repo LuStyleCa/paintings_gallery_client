@@ -1,18 +1,53 @@
 import axios from "axios";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
-const API_URL = "http://localhost:8080/api/v1/auth";
+const AUTH_API_URL = "http://localhost:8080/api/v1/auth";
+const FORGOT_PASSWORD_URL = "http://localhost:8080/forgotPassword";
 
 export const AuthService = {
-    async login(email: string, password: string) {
-        const response = await axios.post(`${API_URL}/login`, { email, password })
-        if(response) {
-          Cookies.set('accessToken', response.data.accessToken, {expires: 1})
-        }
-        return response.data;
-      },
-      async register(email: string, password: string, username: string) {
-        const response = await axios.post(`${API_URL}/register`, { email, password, username })
-        return response.data;
-      },
-}
+  async login(email: string, password: string) {
+    const response = await axios.post(`${AUTH_API_URL}/login`, {
+      email,
+      password,
+    });
+    if (response) {
+      Cookies.set("accessToken", response.data.accessToken, { expires: 1 });
+    }
+    return response.data;
+  },
+  async register(email: string, password: string, username: string) {
+    const response = await axios.post(`${AUTH_API_URL}/register`, {
+      email,
+      password,
+      username,
+    });
+    return response.data;
+  },
+  async verifyEmail(email: string) {
+    const response = await axios.post(
+      `${FORGOT_PASSWORD_URL}/verifyEmail`,
+      { email }
+    );
+    return response.data;
+  },
+    async verifyOtp(otpString: string, email: string) {
+      const otp = parseInt(otpString, 10);
+      const response = await axios.post(`${FORGOT_PASSWORD_URL}/verifyOtp`, {
+        otp,
+        email,
+      });
+      return response.data;
+    },
+  async changePassword(
+    password: string,
+    confirmPassword: string,
+    email: string
+  ) {
+    const response = await axios.post(`${FORGOT_PASSWORD_URL}/changePassword`, {
+      password,
+      confirmPassword,
+      email,
+    });
+    return response.data;
+  },
+};

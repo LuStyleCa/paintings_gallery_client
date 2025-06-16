@@ -38,6 +38,7 @@ export default function Painting({
           alt="Painting"
           width={1200}
           height={1200}
+          className="rounded-md"
         />
       </button>
       {isAdmin && (

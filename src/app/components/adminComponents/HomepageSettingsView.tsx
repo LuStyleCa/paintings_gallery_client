@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { homepageService } from "../services/HomepageService";
-import ImageSelector from "./ImageSelector";
+import { homepageService } from "../../services/HomepageService";
+import ImageSelector from "../ImageSelector";
 import toast from "react-hot-toast";
-import { ContentManagementModel } from "../models/ContentManagement-model";
+import { ContentManagementModel } from "../../models/ContentManagement-model";
 
 interface HomepageSettingsViewProps {
   contentManagement: ContentManagementModel | null;
@@ -36,8 +36,8 @@ export default function HomepageSettingsView({
   };
 
   return (
-    <div className="flex p-2">
-      <div className="w-1/2 p-10">
+    <div className="flex p-2 bg-zinc-700">
+      <div className="w-1/2 md:p-10">
         <ImageSelector
           title={"Select homepage painting"}
           setFile={handleSetImage}
@@ -45,7 +45,7 @@ export default function HomepageSettingsView({
         />
         <button onClick={handleSavePainting}>Save</button>
       </div>
-      <div className="ml-8"></div>
+      {/* <div className="ml-8"></div> */}
     </div>
   );
 }

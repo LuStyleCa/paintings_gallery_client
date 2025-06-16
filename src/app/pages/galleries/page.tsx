@@ -30,7 +30,7 @@ export default function Galleries() {
 
   return (
     <>
-      <div className="mt-14 bg-gray-100">
+      <div className="mt-14 bg-zinc-700 h-screen">
         {galleries.map((gallery, index) => (
           <Gallery
             key={gallery.id || index}

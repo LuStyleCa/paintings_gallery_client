@@ -21,10 +21,13 @@ export default function Home() {
   const fileUrl = ContentManagement?.homepagePainting?.fileUrl;
 
   return (
-    <div className="bg-zinc-700 p-10 h-screen">
-      <div className="flex mt-14 p-10">
-        <div className="w-1/2 text-white">
-          <h1 className="text-white text-6xl font-bold mb-4">TOON BORGHUIS</h1>
+    <div className="bg-zinc-700 py-10 px-10 min-h-screen overflow-hidden md:overflow-auto">
+      <div className="flex flex-col md:flex-row mt-14 gap-8">
+        {/* TEXT BLOCK */}
+        <div className="w-full md:w-1/2 text-white p-4">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+            TOON BORGHUIS
+          </h1>
           <p>
             In de &quot;huid&quot; van mijn schilderijen laat ik intuitief
             vormen, kleuren en structuren &quot;te voorschijn groeien&quot;. Het
@@ -35,9 +38,21 @@ export default function Home() {
             harmonie.
           </p>
         </div>
-        <div className="w-1/2 flex justify-center">
+
+        {/* IMAGE BLOCK */}
+        <div className="w-full md:w-1/2 flex justify-center items-center">
           {fileUrl && (
-            <Image src={fileUrl} alt="Logo" width={325} height={325} />
+            <div className="w-full max-w-md max-h-[70vh] p-4">
+              <Image
+                src={fileUrl}
+                alt="Painting"
+                width={800}
+                height={800}
+                layout="responsive"
+                objectFit="contain"
+                className="rounded-md"
+              />
+            </div>
           )}
         </div>
       </div>

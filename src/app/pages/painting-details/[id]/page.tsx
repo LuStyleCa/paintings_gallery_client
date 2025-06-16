@@ -109,8 +109,8 @@ export default function PaintingDetails() {
         setPainting={setSelectedPainting}
       />
 
-      <div className="flex mt-14 h-[calc(100vh-3.5rem)]">
-        <div className="bg-zinc-700 w-1/4 p-8">
+      <div className="flex flex-col md:flex-row mt-14 h-[calc(100vh-3.5rem)]">
+        <div className="bg-zinc-700 lg:w-1/4 p-8 w-full">
           <button onClick={handleGoBack} className="text-white">
             X
           </button>
@@ -129,7 +129,7 @@ export default function PaintingDetails() {
             </div>
           </div>
         </div>
-        <div className="w-1/2 flex items-center bg-zinc-300 p-8">
+        <div className="lg:w-1/2 w-full flex items-center bg-zinc-300 p-8">
           {painting && (
             <Image
               src={painting.fileUrl}
@@ -141,7 +141,7 @@ export default function PaintingDetails() {
             />
           )}
         </div>
-        <div className="bg-zinc-300 w-1/4 p-4 flex-col h-full">
+        <div className="bg-zinc-300 lg:w-1/4 w-full p-4 flex-col h-full">
           <CommentSection painting={painting} sentMessage={handleSentMessage} />
         </div>
       </div>

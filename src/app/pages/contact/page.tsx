@@ -17,7 +17,7 @@ export default function Contact() {
     }, []);
     
   return (
-    <div className="h-screen flex items-center justify-center p-10">
+    <div className="bg bg-zinc-700 h-screen flex items-center justify-center p-10 text-white">
       <div className="text-center space-y-4">
         <h1 className="text-3xl font-bold">Contact</h1>
         <p>📧 Email: {contentManagement?.contactPage?.email}</p>

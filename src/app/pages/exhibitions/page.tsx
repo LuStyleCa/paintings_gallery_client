@@ -2,9 +2,9 @@
 
 export default function ExhibitionsPage() {
   return (
-    <div className="flex justify-center items-center h-screen border-2 border-black bg-zinc-300">
+    <div className="flex justify-center items-center h-screen bg-zinc-700 text-white">
       <ul className="">
-        <li>Stedum lo l</li>
+        <li>Stedum</li>
         <li>Stedum</li>
         <li>Stedum</li>
         <li>Stedum</li>

@@ -27,8 +27,8 @@ export default function ImageSelector({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md w-96 mx-auto">
-      <h2 className="text-lg font-semibold mb-4">{title}</h2>
+    <div className="flex flex-col items-center justify-center p-4 w-96 mx-auto text-white">
+      <h2 className="text-lg font-semibold mb-4 ">{title}</h2>
       <input
         type="file"
         accept="image/*"

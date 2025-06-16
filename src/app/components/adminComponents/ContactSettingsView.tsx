@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { contactPageService } from "../services/ContactPageService";
+import { contactPageService } from "../../services/ContactPageService";
 import toast from "react-hot-toast";
-import { ContentManagementModel } from "../models/ContentManagement-model";
+import { ContentManagementModel } from "../../models/ContentManagement-model";
 
 interface ContactSettingsViewProps {
     contentManagement: ContentManagementModel | null;

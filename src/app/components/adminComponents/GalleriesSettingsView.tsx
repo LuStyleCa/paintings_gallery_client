@@ -1,13 +1,13 @@
 "use client";
 
-import { GalleryModel } from "../models/Gallery-model";
+import { GalleryModel } from "../../models/Gallery-model";
 
 import ManageGalleryDialog, {
   ManageGalleryDialogRef,
-} from "../dialogs/ManageGalleryDialog";
+} from "../../dialogs/ManageGalleryDialog";
 import { useEffect, useRef, useState } from "react";
-import { galleryService } from "../services/GalleryService";
-import Gallery from "../components/Gallery";
+import { galleryService } from "../../services/GalleryService";
+import Gallery from "../Gallery";
 
 export default function GallerySettingsView() {
   const [galleries, setGalleries] = useState<GalleryModel[]>([]);
@@ -107,7 +107,7 @@ export default function GallerySettingsView() {
         onEditGallery={handleChangesGallery}
       />
 
-      <div>
+      <div className="bg-zinc-700 p-4 h-screen">
         <button onClick={() => dialogRef.current?.openModal()}>
           Add Gallery
         </button>
