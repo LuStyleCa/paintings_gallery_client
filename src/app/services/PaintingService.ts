@@ -1,7 +1,8 @@
 import axios from "axios";
 import { PaintingModel } from "../models/Painting-model";
 
-const API_URL = "http://localhost:8080/api/v1/paintings"; // Replace with your backend URL
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_URL = `${API_BASE_URL}/api/v1/paintings`; // Replace with your backend URL
 
 export const PaintingService = {
   async getPaintingById(paintingId: number): Promise<PaintingModel> {

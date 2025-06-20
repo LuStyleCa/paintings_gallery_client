@@ -1,8 +1,10 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const AUTH_API_URL = "http://localhost:8080/api/v1/auth";
-const FORGOT_PASSWORD_URL = "http://localhost:8080/forgotPassword";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const AUTH_API_URL = `${API_BASE_URL}/api/v1/auth`;
+const FORGOT_PASSWORD_URL = `${API_BASE_URL}/forgotPassword`;
 
 export const AuthService = {
   async login(email: string, password: string) {

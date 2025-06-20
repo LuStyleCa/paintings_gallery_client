@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1"; // Replace with your backend URL
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_URL = `${API_BASE_URL}/api/v1`;
 
 export const aboutPageService = {
     async saveAboutPage(text: string, file: File | null) {
