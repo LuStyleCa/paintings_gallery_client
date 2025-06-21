@@ -17,7 +17,7 @@ export default function About() {
     fetchContentManagement();
   }, []);
 
-  const fileUrl = contentManagement?.aboutPage?.aboutPageImage.fileUrl;
+  const fileUrl = contentManagement?.aboutPage?.aboutPageImage?.fileUrl;
 
   return (
     <div className="bg-zinc-700 min-h-screen flex flex-col md:flex-row items-center md:justify-center gap-6 p-6 text-white">
